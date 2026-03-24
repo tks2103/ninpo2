@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhfumo15kloj6"]
+
+[ext_resource type="Texture2D" uid="uid://bs5lhj0143ky2" path="res://entities/boomerang/assets/sprWeaponBoomerang.png" id="1_4mad0"]
+[ext_resource type="Script" uid="uid://7jjdpaqrjp8m" path="res://entities/boomerang/boomerang.gd" id="1_cxt0b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cxt0b"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btonk"]
+atlas = ExtResource("1_4mad0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uevqp"]
+atlas = ExtResource("1_4mad0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai8xh"]
+atlas = ExtResource("1_4mad0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjgp1"]
+atlas = ExtResource("1_4mad0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_76u7f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btonk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uevqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai8xh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjgp1")
+}],
+"loop": true,
+"name": &"Shooting",
+"speed": 5.0
+}]
+
+[node name="Boomerang" type="CharacterBody2D"]
+script = ExtResource("1_cxt0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cxt0b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_76u7f")
+animation = &"Shooting"
+frame_progress = 0.0223686

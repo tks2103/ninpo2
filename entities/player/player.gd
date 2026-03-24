@@ -15,8 +15,11 @@ var move_direction: Vector2 = Vector2.ZERO
 @onready var animation_playback: AnimationNodeStateMachinePlayback = \
 	$AnimationTree["parameters/playback"]
 
+const BoomerangScene: PackedScene = preload("res://entities/boomerang/boomerang.tscn")
+
 func _physics_process(delta: float) -> void:
 	move()
+	act()
 
 func log_location() -> void:
 	print(int(position.x / 16), " ", int(position.y / 16))
@@ -39,6 +42,14 @@ func move() -> void:
 	
 	if state == State.WALK:
 		log_location()
+
+func act() -> void:
+	if Input.is_action_just_pressed("action"):
+		print("throw boomerang")
+		var boomerang: CharacterBody2D = BoomerangScene.instantiate()
+		get_parent().add_child(boomerang)
+		boomerang.global_position = global_position
+		boomerang.throw(global_position, Vector2(1, 0))
 
 
 func update_animation() -> void:
