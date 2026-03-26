@@ -93,6 +93,8 @@ func _process_retracting(delta: float) -> void:
 		hook.global_position = owner_node.global_position
 		_hide_hook()
 		state = State.IDLE
+		owner_node.state = State.IDLE
+		owner_node = null
 		#emit_signal("retracted")
 	else:
 		hook.global_position += dir.normalized() * retract_speed * delta
@@ -129,6 +131,7 @@ func _process_pulling(delta: float) -> void:
 func _finish_pull() -> void:
 	if owner_node is CharacterBody2D:
 		owner_node.velocity = Vector2.ZERO
+		owner_node.state = State.IDLE
 	#tip.monitoring = false
 	_hide_hook()
 	state = State.IDLE

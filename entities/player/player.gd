@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 enum State {
 	IDLE,
+	HOOKSHOTTING,
 	WALK
 }
 
@@ -28,6 +29,8 @@ func log_location() -> void:
 	print(int(position.x / 16), " ", int(position.y / 16))
 
 func move() -> void:
+	if state == State.HOOKSHOTTING:
+		return
 	move_direction.x = 	int(Input.is_action_pressed("right")) - \
 						int(Input.is_action_pressed("left"))
 	move_direction.y = 	int(Input.is_action_pressed("down")) - \
@@ -48,12 +51,15 @@ func move() -> void:
 		pass
 
 func act() -> void:
+	if state == State.HOOKSHOTTING:
+		return
 	if Input.is_action_just_pressed("action"):
 		print("launch hookshot")
 		if not hookshot:
 			hookshot = HookshotScene.instantiate()
 			get_parent().add_child(hookshot)
 		hookshot.fire(Vector2(1, 0), self)
+		state = State.HOOKSHOTTING
 		#print("throw boomerang")
 		#var boomerang: CharacterBody2D = BoomerangScene.instantiate()
 		#get_parent().add_child(boomerang)
