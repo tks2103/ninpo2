@@ -6,6 +6,9 @@ enum State {
 	WALK
 }
 
+enum ActiveItem { HOOKSHOT, BOOMERANG }
+var active_item: ActiveItem = ActiveItem.BOOMERANG
+
 @export_category("Stats")
 @export var speed: int = 500
 
@@ -22,11 +25,16 @@ const HookshotScene: PackedScene = preload("res://entities/hookshot/hookshot.tsc
 var hookshot: CharacterBody2D = null
 
 func _physics_process(delta: float) -> void:
+	input()
 	move()
 	act()
 
 func log_location() -> void:
 	print(int(position.x / 16), " ", int(position.y / 16))
+
+func input() -> void:
+	if Input.is_action_just_released("swap"):
+		active_item = (active_item + 1) % ActiveItem.size()
 
 func move() -> void:
 	if state == State.HOOKSHOTTING:
@@ -54,17 +62,20 @@ func act() -> void:
 	if state == State.HOOKSHOTTING:
 		return
 	if Input.is_action_just_pressed("action"):
-		print("launch hookshot")
-		if not hookshot:
-			hookshot = HookshotScene.instantiate()
-			get_parent().add_child(hookshot)
-		hookshot.fire(Vector2(1, 0), self)
-		state = State.HOOKSHOTTING
-		#print("throw boomerang")
-		#var boomerang: CharacterBody2D = BoomerangScene.instantiate()
-		#get_parent().add_child(boomerang)
-		#boomerang.global_position = global_position
-		#boomerang.throw(global_position, Vector2(1, 0))
+		match active_item:
+			ActiveItem.HOOKSHOT:
+				print("launch hookshot")
+				if not hookshot:
+					hookshot = HookshotScene.instantiate()
+					get_parent().add_child(hookshot)
+				hookshot.fire(Vector2(1, 0), self)
+				state = State.HOOKSHOTTING
+			ActiveItem.BOOMERANG:
+				print("throw boomerang")
+				var boomerang: CharacterBody2D = BoomerangScene.instantiate()
+				get_parent().add_child(boomerang)
+				boomerang.global_position = global_position
+				boomerang.throw(global_position, Vector2(1, 0))
 
 
 func update_animation() -> void:
