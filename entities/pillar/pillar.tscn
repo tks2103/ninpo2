@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhgakm7w0cy4k"]
+
+[ext_resource type="Texture2D" uid="uid://cl4ctox7d7i0t" path="res://entities/pillar/assets/sign.png" id="1_myexd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_204qn"]
+size = Vector2(14, 13)
+
+[node name="Pillar" type="Area2D"]
+collision_layer = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_204qn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_myexd")

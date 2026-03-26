@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg6pnba7m06mw"]
+
+[ext_resource type="Script" uid="uid://okoq4k0wh8de" path="res://entities/hookshot/hookshot.gd" id="1_0renc"]
+[ext_resource type="Texture2D" uid="uid://buuy88nr8x4c3" path="res://entities/hookshot/assets/hook.png" id="2_1ova8"]
+[ext_resource type="Texture2D" uid="uid://rqgxxbi0oehs" path="res://entities/hookshot/assets/chain.png" id="3_1ova8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0renc"]
+size = Vector2(11, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdvek"]
+
+[node name="Hookshot" type="CharacterBody2D"]
+collision_layer = 5
+script = ExtResource("1_0renc")
+hookable_layers = 15
+
+[node name="Hook" type="Area2D" parent="."]
+
+[node name="HookSprite" type="Sprite2D" parent="Hook"]
+texture = ExtResource("2_1ova8")
+region_rect = Rect2(16, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hook"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_0renc")
+
+[node name="Chain" type="Line2D" parent="."]
+texture = ExtResource("3_1ova8")
+texture_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xdvek")

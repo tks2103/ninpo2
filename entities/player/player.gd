@@ -16,6 +16,9 @@ var move_direction: Vector2 = Vector2.ZERO
 	$AnimationTree["parameters/playback"]
 
 const BoomerangScene: PackedScene = preload("res://entities/boomerang/boomerang.tscn")
+const HookshotScene: PackedScene = preload("res://entities/hookshot/hookshot.tscn")
+
+var hookshot: CharacterBody2D = null
 
 func _physics_process(delta: float) -> void:
 	move()
@@ -41,15 +44,21 @@ func move() -> void:
 		update_animation()
 	
 	if state == State.WALK:
-		log_location()
+		#log_location()
+		pass
 
 func act() -> void:
 	if Input.is_action_just_pressed("action"):
-		print("throw boomerang")
-		var boomerang: CharacterBody2D = BoomerangScene.instantiate()
-		get_parent().add_child(boomerang)
-		boomerang.global_position = global_position
-		boomerang.throw(global_position, Vector2(1, 0))
+		print("launch hookshot")
+		if not hookshot:
+			hookshot = HookshotScene.instantiate()
+			get_parent().add_child(hookshot)
+		hookshot.fire(Vector2(1, 0), self)
+		#print("throw boomerang")
+		#var boomerang: CharacterBody2D = BoomerangScene.instantiate()
+		#get_parent().add_child(boomerang)
+		#boomerang.global_position = global_position
+		#boomerang.throw(global_position, Vector2(1, 0))
 
 
 func update_animation() -> void:

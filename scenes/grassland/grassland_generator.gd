@@ -23,7 +23,6 @@ var tileset: TileSet
 @export var random_seed: int = 42
 
 func _ready() -> void:
-	print("hi")
 	set_player_location()
 	#generate_map()
 
