@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://2gve527l8bb0"
-path="res://.godot/imported/Spear.png-3886683685a955a2336d60d8661a4ce6.ctex"
+path="res://.godot/imported/Spear.png-3c78b2ea8cfead0d82888d0aaee89418.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/hookshot/assets/Spear.png"
-dest_files=["res://.godot/imported/Spear.png-3886683685a955a2336d60d8661a4ce6.ctex"]
+source_file="res://entities/assets/Spear.png"
+dest_files=["res://.godot/imported/Spear.png-3c78b2ea8cfead0d82888d0aaee89418.ctex"]
 
 [params]
 

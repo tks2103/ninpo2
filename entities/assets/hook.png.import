@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crp7vv7ghsl01"
-path="res://.godot/imported/Idle.png-f31e0e83fde02645c9df0dbc61e3c51a.ctex"
+uid="uid://buuy88nr8x4c3"
+path="res://.godot/imported/hook.png-eb2e4b36e03905c4526c1f29f6cfdc80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/player/assets/sprites/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-f31e0e83fde02645c9df0dbc61e3c51a.ctex"]
+source_file="res://entities/assets/hook.png"
+dest_files=["res://.godot/imported/hook.png-eb2e4b36e03905c4526c1f29f6cfdc80.ctex"]
 
 [params]
 

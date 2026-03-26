@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dhfumo15kloj6"]
 
-[ext_resource type="Texture2D" uid="uid://bs5lhj0143ky2" path="res://entities/boomerang/assets/sprWeaponBoomerang.png" id="1_4mad0"]
+[ext_resource type="Texture2D" uid="uid://bs5lhj0143ky2" path="res://entities/assets/sprWeaponBoomerang.png" id="1_4mad0"]
 [ext_resource type="Script" uid="uid://7jjdpaqrjp8m" path="res://entities/boomerang/boomerang.gd" id="1_cxt0b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cxt0b"]
