@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 enum State {
 	IDLE,
+	CARRYING,
 	HOOKSHOTTING,
 	WALK
 }
@@ -22,6 +23,7 @@ var move_direction: Vector2 = Vector2.ZERO
 const BoomerangScene: PackedScene = preload("res://entities/boomerang/boomerang.tscn")
 const HookshotScene: PackedScene = preload("res://entities/hookshot/hookshot.tscn")
 
+var carried: RigidBody2D = null
 var hookshot: CharacterBody2D = null
 
 func _physics_process(delta: float) -> void:
@@ -76,6 +78,21 @@ func act() -> void:
 				get_parent().add_child(boomerang)
 				boomerang.global_position = global_position
 				boomerang.throw(global_position, Vector2(1, 0))
+	if Input.is_action_just_pressed("lift"):
+		if state == State.CARRYING:
+			carried.throw(Vector2(1, 0))
+			state = State.IDLE
+		else:
+			for i in get_slide_collision_count():
+				var collision = get_slide_collision(i)
+				var collider = collision.get_collider()
+
+				if collider is RigidBody2D and collider.name == "Pot":
+					collider.lift(Vector2(1, 0), self)
+					carried = collider
+					state = State.CARRYING
+				if collider is StaticBody2D and collider.name == "Chest":
+					collider.open()
 
 
 func update_animation() -> void:

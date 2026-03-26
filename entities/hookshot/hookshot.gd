@@ -39,7 +39,7 @@ func _ready() -> void:
 	_hide_chain()
 	_hide_hook()
 	# Connect tip collision
-	hook.area_entered.connect(_on_hook_area_entered)
+	hook.body_entered.connect(_on_hook_body_entered)
 	#tip.area_entered.connect(_on_tip_area_entered)
  
  
@@ -140,12 +140,12 @@ func _finish_pull() -> void:
 # ---------------------------------------------------------------------------
 # Collision handlers
 # ---------------------------------------------------------------------------
-func _on_hook_area_entered(body: Node2D) -> void:
+func _on_hook_body_entered(body: Node2D) -> void:
 	if state != State.LAUNCHING:
 		return
+	if body.name == "Player":
+		return
 	# Only hook onto bodies in the correct layers
-	print(body)
-	print(body.collision_layer)
 	if body.collision_layer & hookable_layers == 0:
 		return
 	print("collided")

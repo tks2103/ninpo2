@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cin3dbp43fyam"]
+
+[ext_resource type="Script" uid="uid://cc1t74w4kp8i4" path="res://entities/pot/pot.gd" id="1_0sk76"]
+[ext_resource type="Texture2D" uid="uid://cax8am5j8pwfa" path="res://entities/assets/sprBluePot.png" id="1_y63qx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tieyg"]
+size = Vector2(16, 16)
+
+[node name="Pot" type="RigidBody2D"]
+script = ExtResource("1_0sk76")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tieyg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_y63qx")

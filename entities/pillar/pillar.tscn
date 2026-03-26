@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_204qn"]
 size = Vector2(14, 13)
 
-[node name="Pillar" type="Area2D"]
+[node name="Pillar" type="RigidBody2D"]
 collision_layer = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp4i2y87w6dnu"]
+
+[ext_resource type="Texture2D" uid="uid://dxejv8ge2hxjv" path="res://entities/assets/sprBox.png" id="1_agy02"]
+[ext_resource type="Script" uid="uid://cfylmujnf60tg" path="res://entities/chest/chest.gd" id="1_vvkul"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvkul"]
+size = Vector2(14, 15)
+
+[node name="Chest" type="StaticBody2D"]
+script = ExtResource("1_vvkul")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_vvkul")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_agy02")
