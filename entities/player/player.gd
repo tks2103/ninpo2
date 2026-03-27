@@ -11,7 +11,7 @@ enum ActiveItem { HOOKSHOT, BOOMERANG }
 var active_item: ActiveItem = ActiveItem.BOOMERANG
 
 @export_category("Stats")
-@export var speed: int = 500
+@export var speed: int = 120
 
 var state: State = State.IDLE
 var move_direction: Vector2 = Vector2.ZERO
