@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://t8gsp07be80o"]
+[gd_scene load_steps=8 format=4 uid="uid://t8gsp07be80o"]
 
 [ext_resource type="Script" uid="uid://d24db3myfl4rt" path="res://scenes/grassland/grassland_generator.gd" id="1_ad24c"]
 [ext_resource type="PackedScene" uid="uid://sy20o7u3mcvy" path="res://entities/player/Player.tscn" id="2_0wtl6"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bhgakm7w0cy4k" path="res://entities/pillar/pillar.tscn" id="4_uc82p"]
 [ext_resource type="PackedScene" uid="uid://cin3dbp43fyam" path="res://entities/pot/pot.tscn" id="5_k7v0j"]
 [ext_resource type="PackedScene" uid="uid://dp4i2y87w6dnu" path="res://entities/chest/chest.tscn" id="6_3leh2"]
+[ext_resource type="PackedScene" uid="uid://c4l7e4xfg22b1" path="res://entities/bush/bush.tscn" id="7_2skf3"]
 
 [node name="Grassland" type="Node2D"]
 script = ExtResource("1_ad24c")
@@ -29,3 +30,12 @@ position = Vector2(1500, 5200)
 
 [node name="Chest" parent="." instance=ExtResource("6_3leh2")]
 position = Vector2(1650, 5200)
+
+[node name="Bush" parent="." instance=ExtResource("7_2skf3")]
+position = Vector2(1555, 5157)
+
+[node name="Bush2" parent="." instance=ExtResource("7_2skf3")]
+position = Vector2(1577, 5157)
+
+[node name="Bush3" parent="." instance=ExtResource("7_2skf3")]
+position = Vector2(1601, 5157)

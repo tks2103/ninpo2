@@ -86,8 +86,12 @@ func act() -> void:
 			for i in get_slide_collision_count():
 				var collision = get_slide_collision(i)
 				var collider = collision.get_collider()
+				if collider is RigidBody2D:
+					print(collider.get_class())
 
-				if collider is RigidBody2D and collider.name == "Pot":
+				if collider is RigidBody2D and \
+				(collider.name.begins_with("Pot")or \
+				collider.name.begins_with("Bush")):
 					collider.lift(Vector2(1, 0), self)
 					carried = collider
 					state = State.CARRYING

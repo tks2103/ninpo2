@@ -41,6 +41,6 @@ func _process_lifted(delta: float) -> void:
  
 func _process_thrown(delta: float) -> void:
 	if global_position.distance_to(thrown_location) >= max_range:
-		visible = false
+		queue_free()
 		linear_velocity = Vector2.ZERO
 		state = State.BROKEN
