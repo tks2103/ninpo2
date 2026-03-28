@@ -56,12 +56,16 @@ func throw(origin: Vector2, direction: Vector2) -> void:
 	global_position = origin
 	visible         = true
 	state           = State.THROWN
+	self.collision_layer = 0
+	self.collision_mask = 0
 
 func recall() -> void:
 	if state == State.THROWN:
 		state = State.RETURNING
 		# Give the return an initial nudge toward the player
 		return_velocity = (player.global_position - global_position).normalized() * (FLY_SPEED * 0.5)
+		self.collision_layer = 1
+		self.collision_mask = 1
 
 
 # ── Processing ─────────────────────────────────────────────────────────────────
