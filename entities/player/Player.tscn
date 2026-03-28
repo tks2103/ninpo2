@@ -808,6 +808,7 @@ states/walk/position = Vector2(533.5, 86.6465)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_g3lhm"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_4pwj0"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_fmb3c")]
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_453mm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

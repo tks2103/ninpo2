@@ -23,6 +23,8 @@ func lift(direction: Vector2, player_node: Node2D) -> void:
 	state = State.LIFTED
 	owner_node = player_node
 	global_transform.origin = owner_node.global_position + vertical_offset
+	self.collision_layer = 0
+	self.collision_mask = 0
 
 func throw(direction: Vector2) -> void:
 	if state != State.LIFTED:

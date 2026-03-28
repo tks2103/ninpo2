@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 
 func set_player_location() -> void:
 	var player: CharacterBody2D = get_node("Player")
-	player.position = Vector2(103*16, 323*16)
+	player.position = Vector2(23*16, 23*16)
 
 func add_layer() -> void:
 	tilemap_layer = TileMapLayer.new()
