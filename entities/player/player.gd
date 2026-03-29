@@ -15,6 +15,7 @@ var active_item: ActiveItem = ActiveItem.BOOMERANG
 
 var state: State = State.IDLE
 var move_direction: Vector2 = Vector2.ZERO
+var facing: Vector2 = Vector2.ZERO
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_playback: AnimationNodeStateMachinePlayback = \
@@ -51,6 +52,8 @@ func move() -> void:
 	
 	if motion != Vector2.ZERO and state == State.IDLE:
 		state = State.WALK
+		animation_tree.set("parameters/idle/BlendSpace2D/blend_position", \
+						   move_direction)
 		update_animation()
 	elif motion == Vector2.ZERO and state == State.WALK:
 		state = State.IDLE
