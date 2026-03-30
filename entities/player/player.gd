@@ -81,7 +81,7 @@ func act() -> void:
 				var boomerang: CharacterBody2D = BoomerangScene.instantiate()
 				get_parent().add_child(boomerang)
 				boomerang.global_position = global_position
-				boomerang.throw(global_position, Vector2(1, 0))
+				boomerang.throw(global_position, move_direction)
 	if Input.is_action_just_pressed("lift"):
 		if state == State.CARRYING:
 			carried.throw(Vector2(1, 0))
