@@ -54,11 +54,12 @@ func move() -> void:
 		state = State.WALK
 		animation_tree.set("parameters/idle/BlendSpace2D/blend_position", \
 						   move_direction)
+		animation_tree.set("parameters/walk/BlendSpace2D/blend_position", \
+						   move_direction)
 		update_animation()
 	elif motion == Vector2.ZERO and state == State.WALK:
 		state = State.IDLE
 		update_animation()
-	
 	if state == State.WALK:
 		#log_location()
 		pass
