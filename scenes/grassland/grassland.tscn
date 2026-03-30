@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://t8gsp07be80o"]
+[gd_scene load_steps=10 format=4 uid="uid://t8gsp07be80o"]
 
 [ext_resource type="Script" uid="uid://d24db3myfl4rt" path="res://scenes/grassland/grassland_generator.gd" id="1_ad24c"]
 [ext_resource type="PackedScene" uid="uid://sy20o7u3mcvy" path="res://entities/player/Player.tscn" id="2_0wtl6"]
+[ext_resource type="PackedScene" uid="uid://dvwbmtaap1u8y" path="res://entities/falling_rocks/falling_rocks.tscn" id="2_2skf3"]
 [ext_resource type="TileSet" uid="uid://crqa4c43lc14" path="res://scenes/grassland/assets/grassland_tileset.tres" id="3_dbjlt"]
 [ext_resource type="Texture2D" uid="uid://b7gxmigk874sw" path="res://scenes/grassland/assets/StaticTiles.png" id="4_uc82p"]
 [ext_resource type="PackedScene" uid="uid://y412pvabqfh3" path="res://entities/tree/tree.tscn" id="6_3leh2"]
@@ -329,6 +330,9 @@ sources/0 = SubResource("TileSetAtlasSource_k3jt0")
 [node name="Grassland" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ad24c")
+
+[node name="FallingRocks" parent="." instance=ExtResource("2_2skf3")]
+position = Vector2(264, 184)
 
 [node name="Player" parent="." instance=ExtResource("2_0wtl6")]
 rotation = -0.000275854

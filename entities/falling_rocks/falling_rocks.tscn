@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvwbmtaap1u8y"]
+
+[ext_resource type="Texture2D" uid="uid://c2vo4v3503ot5" path="res://entities/assets/RocksandCavesTileset.png" id="1_0l6p4"]
+[ext_resource type="Script" uid="uid://8mxdtwpgyb5k" path="res://entities/falling_rocks/falling_rocks.gd" id="1_8t5pi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04pcv"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t5pi"]
+atlas = ExtResource("1_0l6p4")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wibw7"]
+atlas = ExtResource("1_0l6p4")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggnvl"]
+atlas = ExtResource("1_0l6p4")
+region = Rect2(48, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqlfq"]
+atlas = ExtResource("1_0l6p4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0l6p4"]
+animations = [{
+"frames": [{
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_8t5pi")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_wibw7")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_ggnvl")
+}],
+"loop": true,
+"name": &"Crumble",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqlfq")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="FallingRocks" type="Area2D"]
+script = ExtResource("1_8t5pi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_04pcv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0l6p4")
+animation = &"Crumble"
+frame_progress = 0.0661092
