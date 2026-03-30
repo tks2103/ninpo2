@@ -46,23 +46,20 @@ func move() -> void:
 						int(Input.is_action_pressed("left"))
 	move_direction.y = 	int(Input.is_action_pressed("down")) - \
 						int(Input.is_action_pressed("up"))
+	animation_tree.set("parameters/idle/BlendSpace2D/blend_position", \
+					   move_direction)
+	animation_tree.set("parameters/walk/BlendSpace2D/blend_position", \
+					   move_direction)
 	var motion: Vector2 = move_direction.normalized() * speed
 	set_velocity(motion)
 	move_and_slide()
 	
 	if motion != Vector2.ZERO and state == State.IDLE:
 		state = State.WALK
-		animation_tree.set("parameters/idle/BlendSpace2D/blend_position", \
-						   move_direction)
-		animation_tree.set("parameters/walk/BlendSpace2D/blend_position", \
-						   move_direction)
 		update_animation()
 	elif motion == Vector2.ZERO and state == State.WALK:
 		state = State.IDLE
 		update_animation()
-	if state == State.WALK:
-		#log_location()
-		pass
 
 func act() -> void:
 	if state == State.HOOKSHOTTING:
@@ -74,7 +71,10 @@ func act() -> void:
 				if not hookshot:
 					hookshot = HookshotScene.instantiate()
 					get_parent().add_child(hookshot)
-				hookshot.fire(Vector2(1, 0), self)
+				if move_direction == Vector2.ZERO:
+					hookshot.fire(Vector2(1, 0), self)
+				else:
+					hookshot.fire(move_direction, self)
 				state = State.HOOKSHOTTING
 			ActiveItem.BOOMERANG:
 				print("throw boomerang")
