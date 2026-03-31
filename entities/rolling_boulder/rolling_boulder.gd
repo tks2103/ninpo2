@@ -58,9 +58,6 @@ func reset() -> void:
 	fall()
 
 func _on_body_entered(body: Node2D) -> void:
-	print("collided")
-	self.collision_layer = 0
-	self.collision_mask = 0
 	self.linear_velocity = Vector2.ZERO
 	state = State.CRASHED
 	await get_tree().create_timer(5.0).timeout

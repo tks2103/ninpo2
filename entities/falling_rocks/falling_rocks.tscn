@@ -48,6 +48,7 @@ animations = [{
 }]
 
 [node name="FallingRocks" type="Area2D"]
+collision_mask = 3
 script = ExtResource("1_8t5pi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -7,6 +7,7 @@
 size = Vector2(16, 16)
 
 [node name="Bush" type="RigidBody2D"]
+collision_mask = 27
 script = ExtResource("1_qneut")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1111,6 +1111,8 @@ graph_offset = Vector2(-210.53, 45.1874)
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
+collision_layer = 2
+collision_mask = 153
 script = ExtResource("1_453mm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

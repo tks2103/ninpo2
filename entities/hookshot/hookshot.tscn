@@ -10,11 +10,13 @@ size = Vector2(11, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdvek"]
 
 [node name="Hookshot" type="CharacterBody2D"]
-collision_layer = 5
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_0renc")
-hookable_layers = 15
 
 [node name="Hook" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 157
 
 [node name="HookSprite" type="Sprite2D" parent="Hook"]
 texture = ExtResource("2_1ova8")

@@ -67,7 +67,13 @@ lift={
 [layer_names]
 
 2d_physics/layer_1="Environment"
-2d_physics/layer_3="Hookshot"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Hookable"
+2d_physics/layer_4="Walls, Pillars, Trees"
+2d_physics/layer_5="Rolling Boulders"
+2d_physics/layer_6="Hook"
+2d_physics/layer_7="Boomerang"
+2d_physics/layer_8="Chests"
 
 [physics]
 

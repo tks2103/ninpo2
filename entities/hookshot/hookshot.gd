@@ -20,7 +20,7 @@ extends Node2D
  #
 #@export_group("Layers")
 ### Physics layers the tip can hook onto (set to your "world" / "hookable" layer)
-@export_flags_2d_physics var hookable_layers: int = 3
+@export_flags_2d_physics var hookable_layers: int = 0b10011101
  
 enum State { IDLE, LAUNCHING, HOOKED, RETRACTING, PULLING }
 var state: State = State.IDLE
@@ -146,6 +146,10 @@ func _on_hook_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		return
 	# Only hook onto bodies in the correct layers
+	print(body.name)
+	print(body.collision_layer)
+	print(hookable_layers)
+	print(body.collision_layer & hookable_layers)
 	if body.collision_layer & hookable_layers == 0:
 		return
 	print("collided")
