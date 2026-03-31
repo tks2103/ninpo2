@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 
 func fall() -> void:
 	state = State.FALLING
+	self.visible = true
 	
 func crumble() -> void:
 	state = State.CRUMBLING
@@ -37,8 +38,10 @@ func crumble() -> void:
 	reset()
 
 func reset() -> void:
+	self.visible = false
 	animated_sprite.play("Idle")
 	self.global_position.y += height
 	speed = initial_speed
 	await get_tree().create_timer(2.0).timeout
+	state = State.IDLE
 	fall()

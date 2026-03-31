@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://t8gsp07be80o"]
+[gd_scene load_steps=11 format=4 uid="uid://t8gsp07be80o"]
 
 [ext_resource type="Script" uid="uid://d24db3myfl4rt" path="res://scenes/grassland/grassland_generator.gd" id="1_ad24c"]
 [ext_resource type="PackedScene" uid="uid://sy20o7u3mcvy" path="res://entities/player/Player.tscn" id="2_0wtl6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b7gxmigk874sw" path="res://scenes/grassland/assets/StaticTiles.png" id="4_uc82p"]
 [ext_resource type="PackedScene" uid="uid://y412pvabqfh3" path="res://entities/tree/tree.tscn" id="6_3leh2"]
 [ext_resource type="PackedScene" uid="uid://c4l7e4xfg22b1" path="res://entities/bush/bush.tscn" id="7_2skf3"]
+[ext_resource type="PackedScene" uid="uid://nutb73v01rey" path="res://entities/rolling_boulder/rolling_boulder.tscn" id="8_5o45v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k3jt0"]
 texture = ExtResource("4_uc82p")
@@ -497,3 +498,6 @@ position = Vector2(72, 216)
 
 [node name="Bush14" parent="." instance=ExtResource("7_2skf3")]
 position = Vector2(88, 208)
+
+[node name="RollingBoulder" parent="." instance=ExtResource("8_5o45v")]
+position = Vector2(512, 184)
